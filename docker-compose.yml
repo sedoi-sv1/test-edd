@@ -1,0 +1,7 @@
+version: "3"
+services:
+  app:
+    image: my-clinics
+    container_name: my-clinics
+    ports:
+      - 3000:3000
