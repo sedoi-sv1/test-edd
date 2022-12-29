@@ -6,11 +6,21 @@ import { firstLevelMenuItem, PageItem } from '../../interfaces/menu.interface';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { firstLevelMenu } from '../../helpers/helpers';
-import {  motion } from 'framer-motion'
-
-
+//import {  motion } from 'framer-motion'
 
 export const Menu = (): JSX.Element => {
+	const { menu, setMenu, firstCategory } = useContext(AppContext);
+	
+	return (
+		<div className={styles.menu}>
+			<ul>
+				{menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
+			</ul>
+		</div >
+	);
+}
+
+/*export const Menu = (): JSX.Element => {
 	const { menu, setMenu, firstCategory } = useContext(AppContext);
 
 	const router = useRouter();
@@ -115,4 +125,4 @@ export const Menu = (): JSX.Element => {
 			{buildFirstLevel()}
 		</div >
 	);
-};
+};*/
