@@ -7,13 +7,10 @@ import Logo from '../logo.svg';
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
 	return (
-		/*<div className={cn(className, styles.sidebar)} {...props}>
-			<Logo className={styles.logo} />
-			<Search />
+		<div className={cn(className, styles.sidebar)} {...props}>
+			{/*<Logo className={styles.logo} />
+			<Search />*/}
 			<Menu />
-		</div>*/
-		<div {...props}>
-			Sidebar
 		</div>
 	);
 };

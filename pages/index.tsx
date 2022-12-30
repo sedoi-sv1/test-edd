@@ -4,7 +4,7 @@ import { Htag, Button, P, Rating } from '../components';
 import { Tag } from '../components/Tag/Tag';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
-import { Layout, withLayout } from '../layout/Layout'
+import { withLayout } from '../layout/Layout'
 import { API } from '../helpers/ap';
 
 function Home({ menu, firstCategory }: HomeProps): JSX.Element {
@@ -24,9 +24,6 @@ function Home({ menu, firstCategory }: HomeProps): JSX.Element {
 			<Rating rating={rating} isEditable setRating={setRating} />
 			{/*<<Input placeholder='Тест' />
 	<TextArea placeholder='Тест area' />*/}
-			<ul>
-				{menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
-			</ul>
 		</>
 	);
 }
