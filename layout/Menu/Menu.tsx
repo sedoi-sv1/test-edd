@@ -44,25 +44,23 @@ export const Menu = (): JSX.Element => {
 	};
 
 	const buildFirstLevel = () => {
-		return (
-			<>
-				{firstLevelMenu.map(m => (
-					<div key={m.route} >
-						<Link href={`/${m.route}`}>
-							<a >
-								<div className={cn(styles.firstLevel, {
-									[styles.firstLevelActiv]: m.id == firstCategory
-								})}>
-									{m.icon}
-									<span>{m.name}</span>
-								</div>
-							</a>
-						</Link>
-						{m.id == firstCategory && buildSecondLevel(m)}
-					</div >
-				))}
-			</>
-		);
+		return <>
+            {firstLevelMenu.map(m => (
+                <div key={m.route} >
+                    <Link href={`/${m.route}`}>
+
+                        <div className={cn(styles.firstLevel, {
+                            [styles.firstLevelActiv]: m.id == firstCategory
+                        })}>
+                            {m.icon}
+                            <span>{m.name}</span>
+                        </div>
+
+                    </Link>
+                    {m.id == firstCategory && buildSecondLevel(m)}
+                </div >
+            ))}
+        </>;
 	};
 
 	const buildSecondLevel = (menuItem: firstLevelMenuItem) => {
@@ -92,20 +90,20 @@ export const Menu = (): JSX.Element => {
 	};
 
 	const buildThirdLevel = (pages: PageItem[], route: string) => {
-		return (
-			pages.map(p => (
-				// eslint-disable-next-line react/jsx-key
-				<motion.div key={p._id} variants={variantsCildren}>
-					
-						<a href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, {
-							[styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath
-						})}>
-							{p.category}
-						</a>
-					
-				</motion.div>
-			))
-		);
+		return pages.map(p => (
+            // eslint-disable-next-line react/jsx-key
+            <motion.div key={p._id} variants={variantsCildren}>
+                <Link
+                    href={`/${route}/${p.alias}`}
+                    className={cn(styles.thirdLevel, {
+                        [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath
+                    })}>
+
+                    {p.category}
+
+                </Link>
+            </motion.div>
+        ));
 	};
 
 	return (
